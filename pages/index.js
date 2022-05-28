@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.scss";
 import profilePicture from "../images/profile.png";
 
 import Sparkles from "./sprakles";
-import { Features } from "./features";
+import Features from "./features";
 
 export default function Home() {
   return (

@@ -10,7 +10,7 @@ const TEXTS = [
   "Coffee lover",
 ];
 
-export const Features = () => {
+const Features = () => {
   const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
@@ -23,3 +23,5 @@ export const Features = () => {
 
   return <TextTransition text={TEXTS[index % TEXTS.length]} />;
 };
+
+export default Features;
