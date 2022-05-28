@@ -7,7 +7,6 @@ import profilePicture from "../images/profile.png";
 import Sparkles from "./sprakles";
 import Features from "../components/Features";
 import ThemeChanger from "../components/ThemeChanger";
-import useDarkMode from "use-dark-mode";
 
 export default function Home() {
   return (
