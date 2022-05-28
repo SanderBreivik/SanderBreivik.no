@@ -1,6 +1,6 @@
 import React from "react";
 import TextTransition from "react-text-transition";
-
+import styles from "./styles/Features.module.scss";
 const TEXTS = [
   "Full-stack developer",
   "Father",
@@ -21,7 +21,12 @@ const Features = () => {
     return () => clearTimeout(intervalId);
   }, []);
 
-  return <TextTransition text={TEXTS[index % TEXTS.length]} />;
+  return (
+    <TextTransition
+      className={styles.features}
+      text={TEXTS[index % TEXTS.length]}
+    />
+  );
 };
 
 export default Features;

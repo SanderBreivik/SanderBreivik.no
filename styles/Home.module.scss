@@ -32,6 +32,8 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    filter: drop-shadow(5px 0 0 black) drop-shadow(0 5px 0 black)
+      drop-shadow(-5px 0 0 black) drop-shadow(0 -5px 0 black);
   }
   .titleTexts {
     display: flex;
@@ -156,4 +158,22 @@
 .inline {
   position: relative;
   display: inline-block;
+}
+[data-theme="dark"] {
+  .profile {
+    filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white)
+      drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
+  }
+  .features {
+    color: #fff;
+  }
+  .svg {
+    fill: #fff;
+  }
+}
+
+.darkModeToggle {
+  display: inline;
+  float: right;
+  margin: 1rem;
 }

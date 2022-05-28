@@ -1,0 +1,7 @@
+.features {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .features {
+  color: rgba(255, 255, 255, 0.5);
+}
