@@ -1,6 +1,6 @@
 .darkModeToggle {
   display: flex;
-  margin: 0 auto;
+  justify-content: flex-end;
   & > button {
     font-size: 1.2em;
     background: none;

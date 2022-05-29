@@ -132,12 +132,20 @@
 }
 @media (max-width: 600px) {
   .title {
-    font-size: 3rem;
     flex-direction: column;
+    .titleTexts {
+      flex-direction: column;
+      max-height: calc(100% - 30px);
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
   }
   .grid {
     width: 100%;
-    flex-direction: column;
   }
 }
 
@@ -159,6 +167,7 @@
   position: relative;
   display: inline-block;
 }
+
 [data-theme="dark"] {
   .profile {
     filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white)
@@ -173,7 +182,6 @@
 }
 
 .darkModeToggle {
-  display: inline;
-  float: right;
-  margin: 1rem;
+  position: sticky;
+  top: 0;
 }

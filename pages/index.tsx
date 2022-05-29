@@ -10,7 +10,7 @@ import ThemeChanger from "../components/ThemeChanger";
 
 export default function Home() {
   return (
-    <ThemeProvider>
+    <ThemeProvider enableSystem={false} defaultTheme="dark">
       <div className={styles.darkModeToggle}>
         <ThemeChanger></ThemeChanger>
       </div>

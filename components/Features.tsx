@@ -5,7 +5,7 @@ const TEXTS = [
   "Full-stack developer",
   "Father",
   "Husband",
-  "Hobby photographer",
+  "Photographer",
   "Gamer",
   "Coffee lover",
 ];

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+const random = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min)) + min;
 
-const range = (start, end, step = 1) => {
+const range = (start: number, end: number, step = 1) => {
   let output = [];
   if (typeof end === "undefined") {
     end = start;
@@ -15,7 +16,7 @@ const range = (start, end, step = 1) => {
   return output;
 };
 const DEFAULT_COLOR = "#FFC700";
-const generateSparkle = (color) => {
+const generateSparkle = (color: string) => {
   const sparkle = {
     id: String(random(10000, 99999)),
     createdAt: Date.now(),
@@ -28,47 +29,15 @@ const generateSparkle = (color) => {
   };
   return sparkle;
 };
-const QUERY = "(prefers-reduced-motion: no-preference)";
-const isRenderingOnServer = typeof window === "undefined";
-const getInitialState = () => {
-  // For our initial server render, we won't know if the user
-  // prefers reduced motion, but it doesn't matter. This value
-  // will be overwritten on the client, before any animations
-  // occur.
-  return isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
-};
-function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] =
-    React.useState(getInitialState);
-  React.useEffect(() => {
-    const mediaQueryList = window.matchMedia(QUERY);
-    const listener = (event) => {
-      setPrefersReducedMotion(!event.matches);
-    };
-    if (mediaQueryList.addEventListener) {
-      mediaQueryList.addEventListener("change", listener);
-    } else {
-      mediaQueryList.addListener(listener);
-    }
-    return () => {
-      if (mediaQueryList.removeEventListener) {
-        mediaQueryList.removeEventListener("change", listener);
-      } else {
-        mediaQueryList.removeListener(listener);
-      }
-    };
-  }, []);
-  return prefersReducedMotion;
-}
 
 // Utility helper for random number generation
 const useRandomInterval = (callback, minDelay, maxDelay) => {
   const timeoutId = React.useRef(null);
   const savedCallback = React.useRef(callback);
-  React.useEffect(() => {
+  useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
-  React.useEffect(() => {
+  useEffect(() => {
     let isEnabled =
       typeof minDelay === "number" && typeof maxDelay === "number";
     if (isEnabled) {
@@ -83,16 +52,17 @@ const useRandomInterval = (callback, minDelay, maxDelay) => {
     }
     return () => window.clearTimeout(timeoutId.current);
   }, [minDelay, maxDelay]);
-  const cancel = React.useCallback(function () {
+  const cancel = useCallback(function () {
     window.clearTimeout(timeoutId.current);
   }, []);
   return cancel;
 };
+
 const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
-  const [sparkles, setSparkles] = React.useState(() => {
+  const [sparkles, setSparkles] = useState(() => {
     return range(3, 5).map(() => generateSparkle(color));
   });
-  const prefersReducedMotion = usePrefersReducedMotion();
+
   useRandomInterval(
     () => {
       const sparkle = generateSparkle(color);
@@ -104,8 +74,8 @@ const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
       nextSparkles.push(sparkle);
       setSparkles(nextSparkles);
     },
-    prefersReducedMotion ? null : 50,
-    prefersReducedMotion ? null : 450
+    50,
+    450
   );
   return (
     <Wrapper {...delegated}>
@@ -125,17 +95,21 @@ const Sparkle = ({ size, color, style }) => {
   const path =
     "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
   return (
-    <SparkleWrapper style={style}>
-      <SparkleSvg width={size} height={size} viewBox="0 0 68 68" fill="none">
+    <SparkleWrapper suppressHydrationWarning style={style}>
+      <SparkleSvg
+        suppressHydrationWarning
+        width={size}
+        height={size}
+        viewBox="0 0 68 68"
+        fill="none"
+      >
         <path d={path} fill={color} />
       </SparkleSvg>
     </SparkleWrapper>
   );
 };
 const comeInOut = keyframes`
-  0% {
-    transform: scale(0);
-  }
+
   50% {
     transform: scale(1);
   }
