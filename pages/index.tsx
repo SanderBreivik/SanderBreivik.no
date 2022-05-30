@@ -42,9 +42,9 @@ export default function Home() {
           <section className={styles.description}>
             I am a full-stack developer with a passion for creating{" "}
             <span className={styles.inline}>
-              <Sparkles> beautiful* </Sparkles>
-            </span>{" "}
-            user experiences.
+              <Sparkles> beautiful </Sparkles>
+            </span>
+            * user experiences.
           </section>
           <p className={styles.asterisk}>
             * I know this is not much, but I promise I will add more in the
