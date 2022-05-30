@@ -87,12 +87,12 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .card {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 3;
   justify-content: center;
   align-items: center;
   margin: 1rem;
@@ -103,7 +103,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  width: 150px;
   &:hover {
     color: #0070f3;
     border-color: #0070f3;
