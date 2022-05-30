@@ -6,15 +6,10 @@ import styles from "../styles/Home.module.scss";
 import profilePicture from "../images/profile.png";
 import Sparkles from "./sprakles";
 import Features from "../components/Features";
-import ThemeChanger from "../components/ThemeChanger";
 
 export default function Home() {
   return (
-    <ThemeProvider enableSystem={false} defaultTheme="dark">
-      <div className={styles.darkModeToggle}>
-        <ThemeChanger></ThemeChanger>
-      </div>
-
+    <ThemeProvider enableSystem={true}>
       <div className={styles.container}>
         <Head>
           <title>Sander Breivik | Full-stack developer</title>
@@ -26,30 +21,31 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <div className={styles.title}>
-            <Image
-              priority
-              src={profilePicture}
-              alt="Sander Breivik"
-              width={400}
-              height={400}
-              className={styles.profile}
-            />
-            <div className={styles.titleTexts}>
+          <header className={styles.title}>
+            <figure>
+              <Image
+                priority
+                src={profilePicture}
+                alt="Sander Breivik"
+                width={400}
+                height={400}
+                className={styles.profile}
+              />
+            </figure>
+            <section className={styles.titleTexts}>
               <h1>Sander Breivik</h1>
               <h2>
                 <Features></Features>
               </h2>
-            </div>
-          </div>
-          <></>
-          <div className={styles.description}>
+            </section>
+          </header>
+          <section className={styles.description}>
             I am a full-stack developer with a passion for creating{" "}
             <span className={styles.inline}>
               <Sparkles> beautiful* </Sparkles>
             </span>{" "}
             user experiences.
-          </div>
+          </section>
           <p className={styles.asterisk}>
             * I know this is not much, but I promise I will add more in the
             future!
@@ -63,6 +59,8 @@ export default function Home() {
               <h3>LinkedIn</h3>
               <p>
                 <svg
+                  role="img"
+                  focusable="false"
                   width="48"
                   height="48"
                   viewBox="0 0 24 24"
@@ -81,6 +79,8 @@ export default function Home() {
               <h3>Facebook</h3>
               <p>
                 <svg
+                  role="img"
+                  focusable="false"
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
                   height="48"
@@ -93,6 +93,11 @@ export default function Home() {
             </a>
           </div>
         </main>
+        <footer className={styles.footer}>
+          <p>
+            <a href="mailto:me@sanderbreivik.no">Send me a mail</a>
+          </p>
+        </footer>
       </div>
     </ThemeProvider>
   );
