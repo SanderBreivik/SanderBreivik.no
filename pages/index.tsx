@@ -47,12 +47,9 @@ export default function Home() {
             <span className={styles.inline}>
               <Sparkles> beautiful </Sparkles>
             </span>
-            * user experiences.
+            user experiences.
           </section>
-          <p className={styles.asterisk}>
-            * I know this is not much, but I promise I will add more in the
-            future!
-          </p>
+
           <div className={styles.grid}>
             <a
               href="
