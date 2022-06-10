@@ -46,7 +46,7 @@ export default function Home() {
             I am a full-stack developer with a passion for creating{" "}
             <span className={styles.inline}>
               <Sparkles> beautiful </Sparkles>
-            </span>
+            </span>{" "}
             user experiences.
           </section>
 
