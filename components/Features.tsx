@@ -8,6 +8,7 @@ const TEXTS = [
   "Photographer",
   "Gamer",
   "Coffee lover",
+  "Freediver"
 ];
 
 const Features = () => {
