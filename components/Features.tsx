@@ -3,12 +3,9 @@ import TextTransition from "react-text-transition";
 import styles from "./styles/Features.module.scss";
 const TEXTS = [
   "Full-stack developer",
-  "Father",
-  "Husband",
-  "Photographer",
+  "Freediver",
   "Gamer",
-  "Coffee lover",
-  "Freediver"
+  "Photographer"
 ];
 
 const Features = () => {
@@ -17,7 +14,7 @@ const Features = () => {
   React.useEffect(() => {
     const intervalId = setInterval(
       () => setIndex((index) => index + 1),
-      2000 // every 3 seconds
+      2000 // every 2 seconds
     );
     return () => clearTimeout(intervalId);
   }, []);
