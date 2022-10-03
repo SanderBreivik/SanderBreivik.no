@@ -182,7 +182,12 @@ export default function Home() {
               <h3>GitHub</h3>
               <FaGithubSquare size={48} />
             </a>
-            <a href="https://pdfhost.io/v/RcmFOiS98_CV" className={styles.card}>
+            <a
+              href="cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.card}
+            >
               <h3>CV</h3>
               <FaFile size={48} />
             </a>
