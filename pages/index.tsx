@@ -183,7 +183,7 @@ export default function Home() {
               <FaGithubSquare size={48} />
             </a>
             <a
-              href="cv.pdf"
+              href="CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.card}
