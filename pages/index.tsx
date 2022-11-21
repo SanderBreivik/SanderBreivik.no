@@ -128,6 +128,11 @@ export default function Home() {
           This site uses cookies to enhance the user experience.
         </CookieConsent>
         <main className={styles.main}>
+          <div className={styles.dogEar}>
+          </div>
+              <a className={styles.dogEarInner} title="View source code" href="https://github.com/SanderBreivik/SanderBreivik.no">
+                <FaGithubSquare className={styles.dogEarIcon} size={40} />
+              </a>
           <header className={styles.title}>
             <figure>
               <Image

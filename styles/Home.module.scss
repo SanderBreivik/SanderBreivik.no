@@ -10,8 +10,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
-
+.dogEar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0;
+    border-top: 100px solid #000000;
+    border-left: 100px solid transparent;
+  }
+  .dogEarInner {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+  }
+.dogEarIcon {
+  color: white;
+  svg {
+    color: white;
+  }
+}
 .footer {
   display: flex;
   padding: 1rem 0;
@@ -185,6 +206,15 @@
   .svg {
     fill: #fff;
   }
+  .dogEar {
+    border-top: 100px solid #ffffff;
+  }
+  .dogEarIcon {
+  color: black;
+  svg {
+    color: black;
+  }
+}
 }
 
 .darkModeToggle {
