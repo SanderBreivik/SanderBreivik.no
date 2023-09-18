@@ -22,8 +22,9 @@ const Features = () => {
   return (
     <TextTransition
       className={styles.features}
-      text={TEXTS[index % TEXTS.length]}
-    />
+    >
+      {TEXTS[index % TEXTS.length]}
+    </TextTransition>
   );
 };
 

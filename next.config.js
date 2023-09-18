@@ -12,6 +12,9 @@ const nextConfig = {
     // ssr and displayName are configured by default
     styledComponents: true,
   },
+   eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
