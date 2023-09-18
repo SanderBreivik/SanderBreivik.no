@@ -193,7 +193,7 @@
 .cv-dropdown {
   display: none;
   position: absolute;
-  top: -100%; // Position it ontop the CV icon/card.
+  top: -60%; // Position it ontop the CV icon/card.
   left: 50%; // Center it horizontally relative to the card.
   transform: translateX(-50%); // This, combined with the left property, will center the dropdown.
   background-color: #fff;
