@@ -4,35 +4,41 @@
   display: flex;
   flex-direction: column;
 }
+
 .main {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
 }
+
 .dogEar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 0;
-    border-top: 100px solid #000000;
-    border-left: 100px solid transparent;
-  }
-  .dogEarInner {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 99;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0;
+  border-top: 100px solid #000000;
+  border-left: 100px solid transparent;
+}
+
+.dogEarInner {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+}
+
 .dogEarIcon {
   color: white;
+
   svg {
     color: white;
   }
 }
+
 .footer {
   display: flex;
   padding: 1rem 0;
@@ -46,62 +52,74 @@
     align-items: center;
     text-decoration: underline;
   }
+
   a:hover {
     text-decoration: none;
   }
 }
+
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
+
   .profile {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    filter: drop-shadow(5px 0 0 black) drop-shadow(0 5px 0 black)
-      drop-shadow(-5px 0 0 black) drop-shadow(0 -5px 0 black);
+    filter: drop-shadow(5px 0 0 black) drop-shadow(0 5px 0 black) drop-shadow(-5px 0 0 black) drop-shadow(0 -5px 0 black);
   }
+
   .titleTexts {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     text-align: left;
+
     h1,
     h2 {
       padding: 0;
       margin: 0;
     }
+
     h2 {
       font-size: 4rem;
       color: rgb(0, 0, 0, 0.5);
     }
   }
+
   a {
     color: #0070f3;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
+
     &:focus {
       text-decoration: underline;
     }
+
     &:active {
       text-decoration: underline;
     }
   }
+
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
   text-align: center;
 }
+
 .description {
   text-align: center;
   margin: 2rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
 }
+
 .code {
   background: #fafafa;
   border-radius: 5px;
@@ -110,6 +128,7 @@
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
+
 .grid {
   display: flex;
   align-items: center;
@@ -117,6 +136,7 @@
   flex-wrap: wrap;
   max-width: 1000px;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -132,46 +152,90 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 150px;
+
   &:hover {
     color: #0070f3;
     border-color: #0070f3;
   }
+
   &:focus {
     color: #0070f3;
     border-color: #0070f3;
   }
+
   &:active {
     color: #0070f3;
     border-color: #0070f3;
   }
+
   h2 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
   }
+
   p {
     margin: 0;
     font-size: 1.25rem;
     line-height: 1.5;
   }
 }
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;
 }
+
+.card:hover .cv-dropdown,
+.cv-dropdown.active {
+  display: block;
+}
+
+.cv-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; // Position it below the CV icon/card.
+  left: 50%; // Center it horizontally relative to the card.
+  transform: translateX(-50%); // This, combined with the left property, will center the dropdown.
+  background-color: #fff;
+  min-width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow: hidden; // To ensure the border-radius affects inner elements.
+
+  & a {
+    padding: 12px 16px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
+}
+
+
+
 @media (max-width: 600px) {
   .title {
     flex-direction: column;
+
     .titleTexts {
       flex-direction: column;
       max-height: calc(100% - 30px);
+
       h1 {
         font-size: 3rem;
       }
+
       h2 {
         font-size: 2rem;
       }
     }
   }
+
   .grid {
     width: 100%;
   }
@@ -186,6 +250,7 @@
   0% {
     background-position: top left;
   }
+
   100% {
     background-position: top right;
   }
@@ -198,24 +263,28 @@
 
 [data-theme="dark"] {
   .profile {
-    filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white)
-      drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
+    filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
   }
+
   .features {
     color: #fff;
   }
+
   .svg {
     fill: #fff;
   }
+
   .dogEar {
     border-top: 100px solid #ffffff;
   }
+
   .dogEarIcon {
-  color: black;
-  svg {
     color: black;
+
+    svg {
+      color: black;
+    }
   }
-}
 }
 
 .darkModeToggle {

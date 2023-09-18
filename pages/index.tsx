@@ -16,6 +16,7 @@ import profilePicture from "../images/profile.webp";
 import Sparkles from "./sprakles";
 import Features from "../components/Features";
 import CookieConsent from "react-cookie-consent";
+import React from "react";
 
 export default function Home() {
   const randomSites = [
@@ -112,6 +113,10 @@ export default function Home() {
   function getRandomSite() {
     return randomSites[Math.floor(Math.random() * randomSites.length)];
   }
+  const [isDropdownVisible, setDropdownVisible] = React.useState(false);
+  function toggleDropdown() {
+    setDropdownVisible(!isDropdownVisible);
+  }
 
   return (
     <ThemeProvider enableSystem={true}>
@@ -128,11 +133,14 @@ export default function Home() {
           This site uses cookies to enhance the user experience.
         </CookieConsent>
         <main className={styles.main}>
-          <div className={styles.dogEar}>
-          </div>
-              <a className={styles.dogEarInner} title="View source code" href="https://github.com/SanderBreivik/SanderBreivik.no">
-                <FaGithubSquare className={styles.dogEarIcon} size={40} />
-              </a>
+          <div className={styles.dogEar}></div>
+          <a
+            className={styles.dogEarInner}
+            title="View source code"
+            href="https://github.com/SanderBreivik/SanderBreivik.no"
+          >
+            <FaGithubSquare className={styles.dogEarIcon} size={40} />
+          </a>
           <header className={styles.title}>
             <figure>
               <Image
@@ -152,7 +160,8 @@ export default function Home() {
             </section>
           </header>
           <section className={styles.description}>
-            I am a full-stack developer based in Øygarden outside Bergen in Norway with a passion for creating{" "}
+            I am a full-stack developer based in Øygarden outside Bergen in
+            Norway with a passion for creating{" "}
             <span className={styles.inline}>
               <Sparkles> beautiful </Sparkles>
             </span>{" "}
@@ -187,15 +196,24 @@ export default function Home() {
               <h3>GitHub</h3>
               <FaGithubSquare size={48} />
             </a>
-            <a
-              href="CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
               className={styles.card}
+              style={{ position: "relative" }}
+              onClick={toggleDropdown}
             >
               <h3>CV</h3>
               <FaFile size={48} />
-            </a>
+              {isDropdownVisible && (
+                <div className={styles["cv-dropdown"]}>
+                  <a href="CV-en.pdf" target="_blank" rel="noopener noreferrer">
+                    English
+                  </a>
+                  <a href="CV_no.pdf" target="_blank" rel="noopener noreferrer">
+                    Norwegian
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </main>
         <footer className={styles.footer}>
