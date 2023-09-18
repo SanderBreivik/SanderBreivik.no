@@ -208,7 +208,7 @@ export default function Home() {
                   <a href="CV-en.pdf" target="_blank" rel="noopener noreferrer">
                     English
                   </a>
-                  <a href="CV_no.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="CV-no.pdf" target="_blank" rel="noopener noreferrer">
                     Norwegian
                   </a>
                 </div>

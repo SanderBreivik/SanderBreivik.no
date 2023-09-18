@@ -7,25 +7,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.0.4",
-    "next-themes": "^0.2.0",
-    "react": "^17.0.2",
-    "react-cookie-consent": "^7.4.1",
-    "react-dom": "^17.0.2",
-    "react-ga4": "^1.4.1",
+    "next": "^13.4.19",
+    "next-themes": "^0.2.1",
+    "react": "^18.2.0",
+    "react-cookie-consent": "^8.0.1",
+    "react-dom": "^18.2.0",
+    "react-ga4": "^2.1.0",
     "react-gtm-module": "^2.0.11",
-    "react-icons": "^4.4.0",
-    "react-sparkle": "^1.0.9",
-    "react-text-transition": "^2.0.0",
-    "sass": "^1.52.1",
-    "styled-components": "^5.3.5"
+    "react-icons": "^4.11.0",
+    "react-sparkle": "^2.0.0",
+    "react-text-transition": "^3.1.0",
+    "sass": "^1.67.0",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
-    "@types/node": "^17.0.35",
-    "@types/react": "^18.0.1",
-    "@types/styled-components": "^5.1.25",
-    "eslint": "8.12.0",
-    "eslint-config-next": "^13.0.4",
-    "typescript": "^4.7.2"
+    "@types/node": "^20.6.2",
+    "@types/react": "^18.2.21",
+    "@types/styled-components": "^5.1.27",
+    "eslint": "8.49.0",
+    "eslint-config-next": "^13.4.19",
+    "typescript": "^5.2.2"
   }
 }
