@@ -128,6 +128,7 @@ export default function Home() {
             content="Sander Breiviks personal full-stack profile"
           />
           <link rel="icon" href="/favicon.ico" />
+          <title>Sander Brevik</title>
         </Head>
         <CookieConsent buttonStyle={{ color: "black", background: "white" }}>
           This site uses cookies to enhance the user experience.
