@@ -185,13 +185,9 @@
   margin-left: 0.5rem;
 }
 
-.card:hover .cv-dropdown,
-.cv-dropdown.active {
-  display: block;
-}
 
 .cv-dropdown {
-  display: none;
+  display: block;
   position: absolute;
   top: -60%; // Position it ontop the CV icon/card.
   left: 50%; // Center it horizontally relative to the card.
