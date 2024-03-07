@@ -17,6 +17,7 @@ import Sparkles from "./sprakles";
 import Features from "../components/Features";
 import CookieConsent from "react-cookie-consent";
 import React from "react";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   const randomSites = [
@@ -225,6 +226,7 @@ export default function Home() {
             <FaExternalLinkAlt />
           </a>
         </footer>
+        <Analytics />
       </div>
     </ThemeProvider>
   );
