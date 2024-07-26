@@ -259,7 +259,7 @@
 
 [data-theme="dark"] {
   .profile {
-    filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
+    filter: grayscale(100%) drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
   }
 
   .features {
