@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "next": "^13.4.19",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
