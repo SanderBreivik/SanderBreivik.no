@@ -88,7 +88,6 @@ const CV = () => {
               <i>November 2019 – Present</i>
               <ul>
                 <li>Primarily working with .NET and Angular. </li>
-                <li>Utilized SQL and Figma for prototyping.</li>
                 <li>
                   Did a conversion of a Windows application to a multi-tenant,
                   microservice architecture.

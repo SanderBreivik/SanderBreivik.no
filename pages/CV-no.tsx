@@ -88,7 +88,6 @@ const CV = () => {
               <i>November 2019 – Nåværende</i>
               <ul>
                 <li>Primært jobbet med .NET og Angular.</li>
-                <li>Brukt SQL og Figma til prototyping.</li>
                 <li>
                   Konverterte en Windows-applikasjon til en multi-tenant
                   mikroservice-arkitektur.
