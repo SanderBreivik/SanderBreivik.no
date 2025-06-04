@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styles from './styles/Simen.module.scss';
 
-export default function Simen() {
+export default function DynamicNamePage() {
+  const router = useRouter();
+  const { name } = router.query;
   const [isBlinking, setIsBlinking] = useState(true);
   const [visible, setVisible] = useState(true);
 
@@ -14,13 +17,12 @@ export default function Simen() {
       return () => clearInterval(interval);
     }
   }, [isBlinking]);
-
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.messageContainer} style={{ opacity: visible ? 1 : 0 }}>
           <div className={styles.fuckYou}>🖕🏼</div>
-          <h1 className={styles.message}>Fuck you, Simen!</h1>
+          <h1 className={styles.message}>Fuck you, {name || 'Friend'}!</h1>
         </div>
         
         <button 
