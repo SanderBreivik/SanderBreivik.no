@@ -96,10 +96,17 @@ import styles from './styles/Footer.module.scss';
   function getRandomSite() {
     return randomSites[Math.floor(Math.random() * randomSites.length)];
   }
+
+  const getDecodedEmail = () => {
+    // Base64 encoded email: me@sanderbreivik.no
+    const encoded = "bWVAc2FuZGVyYnJlaXZpay5ubw==";
+    return atob(encoded);
+  };
+
 const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
-          <a href="mailto:me@sanderbreivik.no">Send me an email,&nbsp;</a>
+          <a href={`mailto:${getDecodedEmail()}`}>Send me an email,&nbsp;</a>
           <a href="tel:004796044636"> give me a call&nbsp;</a>
           <a href="" onClick={() => window.open(getRandomSite())}>
             or do nothing at all...&nbsp;

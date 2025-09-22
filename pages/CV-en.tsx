@@ -8,6 +8,12 @@ import html2canvas from "html2canvas";
 import { ThemeProvider } from "next-themes";
 
 const CV = () => {
+  const getDecodedEmail = () => {
+    // Base64 encoded email: me@sanderbreivik.no
+    const encoded = "bWVAc2FuZGVyYnJlaXZpay5ubw==";
+    return atob(encoded);
+  };
+
   const downloadPDF = () => {
     const input = document.getElementById("cv-content");
     const downloadBtn = document.getElementById("downloadBtn");
@@ -52,7 +58,7 @@ const CV = () => {
             <header>
               <h1>Sander Breivik</h1>
               <p>
-                <a href="mailto:me@sanderbreivik.no">me@sanderbreivik.no</a>{" "}|{" "}
+                <a href={`mailto:${getDecodedEmail()}`}>{getDecodedEmail()}</a>{" "}|{" "}
                 <a
                   href="https://linkedin.com/in/sanderbreivik"
                   target="_blank"
