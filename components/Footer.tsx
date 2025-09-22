@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import styles from './styles/Footer.module.scss';
 
@@ -104,9 +104,32 @@ import styles from './styles/Footer.module.scss';
   };
 
 const Footer: React.FC = () => {
+  const [emailRevealed, setEmailRevealed] = useState(false);
+
+  const revealEmail = () => {
+    setEmailRevealed(true);
+  };
+
     return (
         <footer className={styles.footer}>
-          <a href={`mailto:${getDecodedEmail()}`}>Send me an email,&nbsp;</a>
+          {emailRevealed ? (
+            <a href={`mailto:${getDecodedEmail()}`}>Send me an email,&nbsp;</a>
+          ) : (
+            <button 
+              onClick={revealEmail}
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                color: 'inherit', 
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                font: 'inherit',
+                padding: 0
+              }}
+            >
+              Click to show email,&nbsp;
+            </button>
+          )}
           <a href="tel:004796044636"> give me a call&nbsp;</a>
           <a href="" onClick={() => window.open(getRandomSite())}>
             or do nothing at all...&nbsp;

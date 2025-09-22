@@ -1,5 +1,5 @@
 // pages/CV.tsx
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import styles from "./styles/CV.module.scss";
@@ -8,10 +8,16 @@ import html2canvas from "html2canvas";
 import { ThemeProvider } from "next-themes";
 
 const CV = () => {
+  const [emailRevealed, setEmailRevealed] = useState(false);
+
   const getDecodedEmail = () => {
     // Base64 encoded email: me@sanderbreivik.no
     const encoded = "bWVAc2FuZGVyYnJlaXZpay5ubw==";
     return atob(encoded);
+  };
+
+  const revealEmail = () => {
+    setEmailRevealed(true);
   };
 
   const downloadPDF = () => {
@@ -58,7 +64,24 @@ const CV = () => {
             <header>
               <h1>Sander Breivik</h1>
               <p>
-                <a href={`mailto:${getDecodedEmail()}`}>{getDecodedEmail()}</a>{" "}|{" "}
+                {emailRevealed ? (
+                  <a href={`mailto:${getDecodedEmail()}`}>{getDecodedEmail()}</a>
+                ) : (
+                  <button 
+                    onClick={revealEmail}
+                    style={{ 
+                      background: 'none', 
+                      border: 'none', 
+                      color: 'inherit', 
+                      textDecoration: 'underline',
+                      cursor: 'pointer',
+                      font: 'inherit',
+                      padding: 0
+                    }}
+                  >
+                    Click to show email
+                  </button>
+                )}{" "}|{" "}
                 <a
                   href="https://linkedin.com/in/sanderbreivik"
                   target="_blank"
