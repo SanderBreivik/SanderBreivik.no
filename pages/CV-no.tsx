@@ -119,14 +119,27 @@ const CV = () => {
                 ACOS AS siden 2019, med fokus på å konvertere en
                 Windows-applikasjon til en multi-tenant
                 mikroservice-arkitektur.
+                Nå er jeg ansatt hos Frende Skadeforsikring, hvor jeg primært
+                jobber med .NET (F#) og React på deres nettbutikk for
+                forsikringer.
               </p>
             </section>
 
             <section>
               <h2>Yrkeserfaring</h2>
               <h3>Fullstack-utvikler</h3>
+              <p>Frende Skadeforsikring, Bergen</p>
+              <i>November 2025 – nåværende</i>
+              <ul>
+                <li>Primært jobbet med .NET (
+                  F#) og React. </li>
+                <li>
+                  Jobber med utvikling og vedlikehold av nettbutikken til Frende.no hvor kunder kan kjøpe forsikringer på nett.
+                </li>
+              </ul>
+              <h3>Fullstack-utvikler</h3>
               <p>ACOS AS, Straume</p>
-              <i>November 2019 – Nåværende</i>
+              <i>November 2019 – November 2025</i>
               <ul>
                 <li>Primært jobbet med .NET og Angular.</li>
                 <li>

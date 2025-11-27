@@ -106,15 +106,27 @@ const CV = () => {
                 Angular, React, React Native, Python, Java, SQL, and Figma, I
                 have been working at ACOS AS since 2019, focusing on converting
                 Windows applications to multi-tenant, microservice
-                architectures.
+                architectures. Currently, I am employed at Frende Skadeforsikring, working
+                primarily with .NET (F#) and React on their online insurance
+                store. 
               </p>
             </section>
 
             <section>
               <h2>Professional Experience</h2>
               <h3>Full-stack Developer</h3>
+              <p>Frende Skadeforsikring, Bergen</p>
+              <i>November 2025 – present</i>
+              <ul>
+                <li>Primarily working with .NET (
+                  F#) and React. </li>
+                <li>
+                  Working on developing and maintaining the store front of Frende.no where customers can buy insurances online.
+                </li>
+              </ul>
+              <h3>Full-stack Developer</h3>
               <p>ACOS AS, Straume</p>
-              <i>November 2019 – Present</i>
+              <i>November 2019 – November 2025</i>
               <ul>
                 <li>Primarily working with .NET and Angular. </li>
                 <li>
