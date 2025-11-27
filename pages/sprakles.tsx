@@ -67,12 +67,14 @@ const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
     () => {
       const sparkle = generateSparkle(color);
       const now = Date.now();
-      const nextSparkles = sparkles.filter((sp) => {
-        const delta = now - sp.createdAt;
-        return delta < 750;
+      setSparkles((currentSparkles) => {
+        const nextSparkles = currentSparkles.filter((sp) => {
+          const delta = now - sp.createdAt;
+          return delta < 750;
+        });
+        nextSparkles.push(sparkle);
+        return nextSparkles;
       });
-      nextSparkles.push(sparkle);
-      setSparkles(nextSparkles);
     },
     50,
     450

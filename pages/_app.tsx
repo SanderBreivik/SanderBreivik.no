@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import ReactGA from "react-ga4";
 
 function MyApp({ Component, pageProps }) {
-  ReactGA.initialize("G-J2FKZSW4WH");
-  ReactGA.send("pageview");
   useEffect(() => {
+    // Initialize analytics only once
+    ReactGA.initialize("G-J2FKZSW4WH");
+    ReactGA.send("pageview");
     TagManager.initialize({ gtmId: "GTM-KSF7MRH" });
   }, []);
 

@@ -1,67 +1,22 @@
 // pages/CV.tsx
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import styles from "./styles/CV.module.scss";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import { ThemeProvider } from "next-themes";
+import { getDecodedEmail } from "../utils/email";
+import { downloadCVAsPDF } from "../utils/pdf";
 
 const CV = () => {
   const [emailRevealed, setEmailRevealed] = useState(false);
 
-  const getDecodedEmail = () => {
-    // Base64 encoded email: me@sanderbreivik.no
-    const encoded = "bWVAc2FuZGVyYnJlaXZpay5ubw==";
-    return atob(encoded);
-  };
-
-  const revealEmail = () => {
+  const revealEmail = useCallback(() => {
     setEmailRevealed(true);
-  };
+  }, []);
 
-  const downloadPDF = () => {
-    // Temporarily reveal email for PDF generation
-    const wasRevealed = emailRevealed;
-    setEmailRevealed(true);
-    
-    setTimeout(() => {
-      const input = document.getElementById("cv-content");
-      const downloadBtn = document.getElementById("downloadBtn");
-      input.style.color = "black";
-      downloadBtn.style.display = "none";
-      
-      html2canvas(input, { scale: 2 }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "a4");
-        const imgWidth = 210;
-        const pageHeight = 295;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let heightLeft = imgHeight;
-
-        let position = 0;
-
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-
-        while (heightLeft >= 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
-          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-        }
-
-        pdf.save("Sander_Breivik_CV.pdf");
-        input.style.color = "inherit";
-        downloadBtn.style.display = "inherit";
-        
-        // Restore original email state
-        if (!wasRevealed) {
-          setEmailRevealed(false);
-        }
-      });
-    }, 100);
-  };
+  const handleDownloadPDF = useCallback(() => {
+    downloadCVAsPDF("Sander_Breivik_CV_NO.pdf");
+  }, []);
 
   return (
     <ThemeProvider enableSystem={true}>
@@ -103,7 +58,7 @@ const CV = () => {
                 </a>{" "}
                 | <a type="tel">96044636</a>
               </p>
-              <button onClick={downloadPDF} id="downloadBtn" className={styles.downloadBtn}>
+              <button onClick={handleDownloadPDF} id="downloadBtn" className={styles.downloadBtn}>
                 Last ned som PDF
               </button>
             </header>

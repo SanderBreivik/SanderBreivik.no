@@ -8,7 +8,7 @@ const TEXTS = [
   "Photographer"
 ];
 
-const Features = () => {
+const Features = React.memo(() => {
   const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
@@ -16,7 +16,7 @@ const Features = () => {
       () => setIndex((index) => index + 1),
       2000 // every 2 seconds
     );
-    return () => clearTimeout(intervalId);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -26,6 +26,8 @@ const Features = () => {
       {TEXTS[index % TEXTS.length]}
     </TextTransition>
   );
-};
+});
+
+Features.displayName = 'Features';
 
 export default Features;
