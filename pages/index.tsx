@@ -21,9 +21,9 @@ import styles from "./styles/Home.module.scss";
 
 export default function Home() {
   const [isDropdownVisible, setDropdownVisible] = React.useState(false);
-  function toggleDropdown() {
-    setDropdownVisible(!isDropdownVisible);
-  }
+  const toggleDropdown = React.useCallback(() => {
+    setDropdownVisible((prev) => !prev);
+  }, []);
 
   return (
     <ThemeProvider enableSystem={true}>
