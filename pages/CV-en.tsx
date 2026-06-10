@@ -9,13 +9,26 @@ import { downloadCVAsPDF } from "../utils/pdf";
 
 const CV = () => {
   const [emailRevealed, setEmailRevealed] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
+  const decodedEmail = getDecodedEmail();
 
   const revealEmail = useCallback(() => {
     setEmailRevealed(true);
   }, []);
 
-  const handleDownloadPDF = useCallback(() => {
-    downloadCVAsPDF("Sander_Breivik_CV_EN.pdf");
+  const handleDownloadPDF = useCallback(async () => {
+    setIsDownloading(true);
+    setDownloadError(null);
+
+    try {
+      await downloadCVAsPDF("Sander_Breivik_CV_EN.pdf");
+    } catch (error) {
+      console.error(error);
+      setDownloadError("Something went wrong while generating the PDF. Please try again.");
+    } finally {
+      setIsDownloading(false);
+    }
   }, []);
 
   return (
@@ -26,41 +39,47 @@ const CV = () => {
           <div
             id="cv-content"
             className={styles.cvContent}
-            style={{ padding: "1rem" }}
           >
             <header>
               <h1>Sander Breivik</h1>
-              <p>
-                {emailRevealed ? (
-                  <a href={`mailto:${getDecodedEmail()}`}>{getDecodedEmail()}</a>
-                ) : (
-                  <button 
-                    onClick={revealEmail}
-                    style={{ 
-                      background: 'none', 
-                      border: 'none', 
-                      color: 'inherit', 
-                      textDecoration: 'underline',
-                      cursor: 'pointer',
-                      font: 'inherit',
-                      padding: 0
-                    }}
+              <p className={styles.contactLine}>
+                <span className={styles.screenOnlyEmail}>
+                  {emailRevealed ? (
+                    <a href={`mailto:${decodedEmail}`}>{decodedEmail}</a>
+                  ) : (
+                    <button
+                      onClick={revealEmail}
+                      className={styles.inlineRevealBtn}
+                    >
+                      Click to show email
+                    </button>
+                  )}
+                </span>
+                <span className={styles.pdfOnlyEmail}>{decodedEmail}</span>
+                <span data-pdf-hide="true">
+                  |{" "}
+                  <a
+                    href="https://linkedin.com/in/sanderbreivik"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Click to show email
-                  </button>
-                )}{" "}|{" "}
-                <a
-                  href="https://linkedin.com/in/sanderbreivik"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-                {" "}|{" "}<a type="tel">96044636</a>
+                    LinkedIn
+                  </a>
+                  {" "}
+                </span>
+                |{" "}
+                <a href="tel:96044636">96044636</a>
               </p>
-              <button onClick={handleDownloadPDF} id="downloadBtn" className={styles.downloadBtn}>
-                Download as PDF
-              </button>
+              <div className={styles.actions} data-pdf-hide="true">
+                <button
+                  onClick={handleDownloadPDF}
+                  className={styles.downloadBtn}
+                  disabled={isDownloading}
+                >
+                  {isDownloading ? "Generating PDF..." : "Download as PDF"}
+                </button>
+              </div>
+              {downloadError && <p className={styles.errorText}>{downloadError}</p>}
             </header>
 
             <section>

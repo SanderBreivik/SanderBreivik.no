@@ -1,75 +1,184 @@
 .wrapper {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    background: linear-gradient(180deg, #f5f8ff 0%, #ffffff 38%);
 }
 
 .container {
-    padding: 0 2rem;
-    height: 100%;
+    padding: 2.5rem 1rem 4rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .cvContent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    max-width: 60%;
+    gap: 1.5rem;
+    width: min(100%, 860px);
+    background-color: #ffffff;
+    border: 1px solid #e7ecf8;
+    border-radius: 24px;
+    box-shadow: 0 14px 36px rgba(25, 39, 77, 0.08);
+    padding: 2.2rem 2.2rem 2.5rem;
+    line-height: 1.65;
+    color: #15233f;
+
+    header {
+        border-bottom: 1px solid #e8edf7;
+        padding-bottom: 1rem;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        letter-spacing: -0.03em;
+        color: #0c1a38;
+    }
+
+    h2 {
+        font-size: 1.18rem;
+        margin-bottom: 0.65rem;
+        color: #10316d;
+    }
+
+    h3 {
+        margin-bottom: 0.25rem;
+        color: #0f2a5a;
+    }
+
+    p {
+        margin: 0.4rem 0;
+    }
+
+    i {
+        color: #445676;
+    }
+
+    section {
+        background: #f8faff;
+        border: 1px solid #ebf0fb;
+        border-radius: 16px;
+        padding: 1.1rem 1.1rem 1.15rem;
+    }
+
+    ul {
+        margin-top: 0.45rem;
+        padding-left: 1.2rem;
+    }
+
+    li + li {
+        margin-top: 0.3rem;
+    }
+}
+
+.contactLine {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0.55rem 0 0;
+}
+
+.inlineRevealBtn {
+    background: none;
+    border: none;
+    color: #103c8f;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
+.screenOnlyEmail {
+    display: inline;
+}
+
+.pdfOnlyEmail {
+    display: none;
+}
+
+.cvContent.pdfMode {
+    .screenOnlyEmail {
+        display: none;
+    }
+
+    .pdfOnlyEmail {
+        display: inline;
+    }
+}
+
+.actions {
+    margin-top: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-    .downloadBtn {
-        display: none !important;
+    .cvContent {
+        border-radius: 16px;
+        padding: 1.2rem;
     }
 
-    .cvContent {
-        max-width: 100%;
+    .container {
+        padding: 1.2rem 0.8rem 2.6rem;
+    }
+
+    .downloadBtn {
+        width: 100%;
     }
 }
 
 .downloadBtn {
-    background-color: #FFFFFF;
-    border: 1px solid #222222;
-    border-radius: 8px;
+    background: linear-gradient(140deg, #193d8c, #3468cf);
+    border: 1px solid #103779;
+    border-radius: 999px;
     box-sizing: border-box;
-    color: #222222;
+    color: #ffffff;
     cursor: pointer;
     display: inline-block;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     font-size: 16px;
     font-weight: 600;
-    line-height: 20px;
+    line-height: 1.2;
     margin: 0;
     outline: none;
-    padding: 13px 23px;
+    padding: 0.75rem 1.2rem;
     position: relative;
     text-align: center;
     text-decoration: none;
     touch-action: manipulation;
-    transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+    transition: box-shadow 0.2s, transform 0.1s ease;
     user-select: none;
     -webkit-user-select: none;
     width: auto;
 }
 
+.downloadBtn:hover {
+    box-shadow: 0 8px 20px rgba(38, 93, 190, 0.28);
+    transform: translateY(-1px);
+}
+
 .downloadBtn:focus-visible {
-    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
-    transition: box-shadow .2s;
+    box-shadow: #11326d 0 0 0 2px, rgba(96, 144, 244, 0.38) 0 0 0 5px;
+    transition: box-shadow 0.2s;
 }
 
 .downloadBtn:active {
-    background-color: #F7F7F7;
-    border-color: #000000;
-    transform: scale(.96);
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .downloadBtn:disabled {
-    border-color: #DDDDDD;
-    color: #DDDDDD;
+    background: #e1e7f2;
+    border-color: #ced8ea;
+    color: #5a6986;
     cursor: not-allowed;
-    opacity: 1;
+    box-shadow: none;
+    transform: none;
+}
+
+.errorText {
+    margin-top: 0.7rem;
+    color: #a13232;
+    font-weight: 500;
 }
