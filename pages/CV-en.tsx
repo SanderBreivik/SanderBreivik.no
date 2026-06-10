@@ -25,7 +25,9 @@ const CV = () => {
       await downloadCVAsPDF("Sander_Breivik_CV_EN.pdf");
     } catch (error) {
       console.error(error);
-      setDownloadError("Something went wrong while generating the PDF. Please try again.");
+      setDownloadError(
+        "Something went wrong while generating the PDF. Please try again.",
+      );
     } finally {
       setIsDownloading(false);
     }
@@ -36,10 +38,7 @@ const CV = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <div
-            id="cv-content"
-            className={styles.cvContent}
-          >
+          <div id="cv-content" className={styles.cvContent}>
             <header>
               <h1>Sander Breivik</h1>
               <p className={styles.contactLine}>
@@ -64,11 +63,9 @@ const CV = () => {
                     rel="noopener noreferrer"
                   >
                     LinkedIn
-                  </a>
-                  {" "}
+                  </a>{" "}
                 </span>
-                |{" "}
-                <a href="tel:96044636">96044636</a>
+                | <a href="tel:96044636">96044636</a>
               </p>
               <div className={styles.actions} data-pdf-hide="true">
                 <button
@@ -79,7 +76,9 @@ const CV = () => {
                   {isDownloading ? "Generating PDF..." : "Download as PDF"}
                 </button>
               </div>
-              {downloadError && <p className={styles.errorText}>{downloadError}</p>}
+              {downloadError && (
+                <p className={styles.errorText}>{downloadError}</p>
+              )}
             </header>
 
             <section>
@@ -88,40 +87,73 @@ const CV = () => {
                 I am a full-stack developer passionate about building
                 user-friendly systems with the user experience at the center.
                 Based in Øygarden outside Bergen, Norway, I hold a Bachelor of
-                Science in Informatics from NTNU in Trondheim. With experience in .NET,
-                Angular, React, React Native, Python, Java, SQL, and Figma, I
-                have been working at ACOS AS since 2019, focusing on converting
-                Windows applications to multi-tenant, microservice
-                architectures. Currently, I am employed at Frende Skadeforsikring, working
-                primarily with .NET (F#) and React on their online insurance
-                store. 
+                Science in Informatics from NTNU in Trondheim. With experience
+                in .NET, Angular, React, React Native, Python, Java, SQL, and
+                Figma, I have been working at ACOS AS since 2019, focusing on
+                converting Windows applications to multi-tenant, microservice
+                architectures. Currently, I am employed at Frende
+                Skadeforsikring, working primarily with .NET (F#) and React on
+                their online insurance store.
               </p>
             </section>
 
             <section>
               <h2>Professional Experience</h2>
+
               <h3>Full-stack Developer</h3>
               <p>Frende Skadeforsikring, Bergen</p>
               <i>November 2025 – present</i>
-              <ul>
-                <li>Primarily working with .NET (
-                  F#) and React. </li>
-                <li>
-                  Working on developing and maintaining the store front of Frende.no where customers can buy insurances online.
-                </li>
-              </ul>
+              <p>
+                Working as a full-stack developer on Frende&apos;s digital
+                insurance store, where customers can buy and manage insurance
+                products online. The solution is part of Frende&apos;s
+                customer-facing platform and includes both frontend user flows
+                and backend services related to pricing, validation, product
+                configuration and integrations.
+              </p>
+              <p>
+                My work is primarily with .NET, F#, React and TypeScript. I
+                contribute to further development and maintenance of the
+                storefront, including backend logic, domain validation, mapping
+                of insurance products and coverages, and frontend functionality
+                used in the purchase flow. The role requires working with
+                complex insurance rules and translating business requirements
+                into clear and reliable technical solutions.
+              </p>
+              <p>
+                I have also worked with automated testing, troubleshooting
+                across environments, and investigation of issues in build and
+                test pipelines. This includes identifying differences between
+                test environments and contributing to more stable releases
+                through clearer diagnostics and improved test coverage.
+              </p>
+
               <h3>Full-stack Developer</h3>
               <p>ACOS AS, Straume</p>
               <i>November 2019 – November 2025</i>
-              <ul>
-                <li>Primarily working with .NET and Angular. </li>
-                <li>
-                  Did a conversion of a Windows application to a multi-tenant,
-                  microservice architecture.
-                </li>
-              </ul>
+              <p>
+                Worked as a full-stack developer on the modernization of an
+                existing Windows application into a web-based solution built on
+                a multi-tenant microservice architecture. The project involved
+                moving functionality from an older desktop application to a more
+                scalable and maintainable platform using modern web
+                technologies.
+              </p>
+              <p>
+                My work was mainly with .NET, Angular, AngularJS, TypeScript and
+                SQL. I contributed across both frontend and backend, developing
+                new functionality, maintaining existing features and adapting
+                the solution to an architecture where multiple customers could
+                use the same platform in a secure and structured way.
+              </p>
+              <p>
+                The role involved gradual modernization of legacy code,
+                integration between new and existing services, and close
+                collaboration with other developers to ensure that the solution
+                could continue to evolve without losing important functionality
+                from the original application.
+              </p>
             </section>
-
             <section>
               <h2>Education</h2>
               <h3>Bachelor of Science in Informatics</h3>
