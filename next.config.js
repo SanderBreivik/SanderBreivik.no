@@ -7,6 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/webp"],
+    unoptimized: true,
   },
   compiler: {
     // ssr and displayName are configured by default
