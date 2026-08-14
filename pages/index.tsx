@@ -82,7 +82,8 @@ export default function Home() {
           <header className={styles.title}>
             <figure>
               <Image
-                loading="eager"
+                priority
+                fetchPriority="high"
                 src={profilePicture}
                 alt="Sander Breivik"
                 width={400}
