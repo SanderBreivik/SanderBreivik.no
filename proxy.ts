@@ -7,7 +7,7 @@ import { MARKDOWN_PAGES, estimateTokenCount } from "./content/markdown";
  * pages instead of the rendered HTML. Browsers and any request without that
  * Accept header keep getting the normal HTML response.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const accept = request.headers.get("accept") ?? "";
   const markdown = MARKDOWN_PAGES[request.nextUrl.pathname];
 
