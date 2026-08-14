@@ -24,6 +24,9 @@ const nextConfig = {
             value: [
               '</sitemap.xml>; rel="sitemap"; type="application/xml"',
               '<https://www.sanderbreivik.no/>; rel="canonical"',
+              // Same URL also serves a markdown representation via
+              // Accept: text/markdown content negotiation (see proxy.ts).
+              '</>; rel="alternate"; type="text/markdown"',
             ].join(", "),
           },
         ],

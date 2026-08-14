@@ -10,6 +10,7 @@ import {
 
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import profilePicture from "../images/profile.webp";
 import Sparkles from "./sprakles";
 import Features from "../components/Features";
@@ -18,12 +19,38 @@ import React from "react";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import styles from "./styles/Home.module.scss";
+import { useWebMcpTool } from "../hooks/useWebMcpTool";
 
 export default function Home() {
+  const router = useRouter();
   const [isDropdownVisible, setDropdownVisible] = React.useState(false);
   const toggleDropdown = React.useCallback(() => {
     setDropdownVisible((prev) => !prev);
   }, []);
+
+  useWebMcpTool({
+    name: "open_cv",
+    description:
+      "Navigates to Sander Breivik's CV page in the requested language.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        language: {
+          type: "string",
+          enum: ["en", "no"],
+          description: "CV language: 'en' for English, 'no' for Norwegian.",
+        },
+      },
+      required: ["language"],
+    },
+    annotations: { readOnlyHint: true },
+    execute: async (input) => {
+      const language = input.language === "no" ? "no" : "en";
+      const path = language === "no" ? "/CV-no" : "/CV-en";
+      await router.push(path);
+      return { navigatedTo: path };
+    },
+  });
 
   return (
     <ThemeProvider enableSystem={true}>

@@ -6,6 +6,7 @@ import styles from "./styles/CV.module.scss";
 import { ThemeProvider } from "next-themes";
 import { getDecodedEmail } from "../utils/email";
 import { downloadCVAsPDF } from "../utils/pdf";
+import { useWebMcpTool } from "../hooks/useWebMcpTool";
 
 const CV = () => {
   const [emailRevealed, setEmailRevealed] = useState(false);
@@ -30,6 +31,29 @@ const CV = () => {
       setIsDownloading(false);
     }
   }, []);
+
+  useWebMcpTool({
+    name: "reveal_contact_email_no",
+    description:
+      "Reveals Sander Breivik's contact email address on the Norwegian CV page (avslør e-post).",
+    inputSchema: { type: "object", properties: {} },
+    annotations: { readOnlyHint: true },
+    execute: () => {
+      revealEmail();
+      return { email: decodedEmail };
+    },
+  });
+
+  useWebMcpTool({
+    name: "download_cv_pdf_no",
+    description:
+      "Downloads Sander Breivik's Norwegian CV as a PDF file in the browser (last ned CV som PDF).",
+    inputSchema: { type: "object", properties: {} },
+    execute: async () => {
+      await handleDownloadPDF();
+      return { status: "started", filename: "Sander_Breivik_CV_NO.pdf" };
+    },
+  });
 
   return (
     <ThemeProvider enableSystem={true}>
