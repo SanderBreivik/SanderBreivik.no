@@ -16,6 +16,23 @@ const nextConfig = {
    eslint: {
     ignoreDuringBuilds: true,
   },
+  async headers() {
+    return [
+      {
+        // Advertise discovery resources to agents/crawlers hitting the homepage.
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value: [
+              '</sitemap.xml>; rel="sitemap"; type="application/xml"',
+              '<https://www.sanderbreivik.no/>; rel="canonical"',
+            ].join(", "),
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
