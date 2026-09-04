@@ -13,6 +13,16 @@ const nextConfig = {
     // ssr and displayName are configured by default
     styledComponents: true,
   },
+  async rewrites() {
+    return [
+      {
+        // Next.js routing is case-sensitive; allow the lowercase URL to
+        // resolve to the /LotharHS page as well.
+        source: "/lotharhs",
+        destination: "/LotharHS",
+      },
+    ];
+  },
   async headers() {
     return [
       {
