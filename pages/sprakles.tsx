@@ -100,7 +100,7 @@ const Sparkle = ({ size, color, style }) => {
     <SparkleWrapper suppressHydrationWarning style={style}>
       <SparkleSvg
         focusable="false"
-        role="img"
+        aria-hidden="true"
         width={size}
         height={size}
         viewBox="0 0 68 68"
