@@ -1,0 +1,18 @@
+# Sander Breivik
+
+> Personal website of Sander Breivik, a full-stack developer based in Øygarden, outside Bergen, Norway. Holds a BSc in Informatics from NTNU and has worked at ACOS AS since 2019.
+
+Pages are available as Markdown by requesting them with the `Accept: text/markdown` header. Content may be used for search and AI input, but not for AI training (see robots.txt).
+
+## Pages
+
+- [Home](https://www.sanderbreivik.no/): Introduction and links to profiles
+- [CV (English)](https://www.sanderbreivik.no/CV-en): Experience, education and skills
+- [CV (Norwegian)](https://www.sanderbreivik.no/CV-no): Same CV in Norwegian
+
+## Optional
+
+- [GitHub](https://github.com/SanderBreivik)
+- [Source code for this site](https://github.com/SanderBreivik/SanderBreivik.no)
+- [LinkedIn](https://www.linkedin.com/in/sanderbreivik)
+- [Sitemap](https://www.sanderbreivik.no/sitemap.xml)
